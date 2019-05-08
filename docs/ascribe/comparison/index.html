@@ -28,6 +28,59 @@
 
 <p><a href="../">&lt;-- back</a></p>
 <h1 id="comparison-between-editorconfig-and-ascribe">Comparison between EditorConfig and Ascribe</h1>
+<!--
+Many of Ascribe's options are enforced at the VCS level, so there is less to
+worry about if someone is not using an Ascribe extension.
+
+`.editorconfig` parsers are not as useful as `.gitattributes` parsers.
+-->
+
+<table>
+<thead>
+<tr class="header">
+<th>EditorConfig</th>
+<th>Ascribe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>indent_style</code></td>
+<td><code>expand-tab</code></td>
+</tr>
+<tr class="even">
+<td><code>indent_size</code></td>
+<td><code>tab-stop</code></td>
+</tr>
+<tr class="odd">
+<td><code>tab_width</code></td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td><code>end_of_line</code></td>
+<td><code>eol</code></td>
+</tr>
+<tr class="odd">
+<td><code>charset</code></td>
+<td><code>working-tree-encoding</code></td>
+</tr>
+<tr class="even">
+<td><code>trim_trailing_whitespace</code></td>
+<td><code>trim-trailing-whitespace</code></td>
+</tr>
+<tr class="odd">
+<td><code>insert_final_newline</code></td>
+<td><code>final-newline</code></td>
+</tr>
+<tr class="even">
+<td><code>root</code></td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td><code>max_line_length</code></td>
+<td><code>line-length</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="benefits-of-editorconfig">Benefits of EditorConfig</h3>
 <ul>
 <li>Extensions exist for many editors and other development tools.</li>
@@ -87,15 +140,15 @@
 
           <ul style="list-style: none; padding-left: 0px; margin: 0px;">
 
+            <li style="margin: 10px 0px;"><a href="/docs/ascribe"><b>Ascribe</b></a>
+              An alternative to EditorConfig.</li>
+
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/photon.vim"><b>Photon.vim</b></a>
               A minimal and elegant dark colour scheme for Vim.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/txtdb"><b>txtdb</b></a> An
               experimental RDBMS and DB engine using CSV text files to store
               tables.</li>
-
-            <li style="margin: 10px 0px;"><a href="https://github.com/axvr/org.vim"><b>Org.vim</b></a> An
-              Org-mode plugin for Vim providing only the absolute necessities.</li>
 
           </ul>
 
