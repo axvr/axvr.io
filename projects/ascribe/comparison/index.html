@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Alex Vear | Ascribe vs EditorConfig</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/assets/images/avatar.png" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/lato.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/libre-franklin.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/inconsolata.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+    <!-- RSS Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/posts/feed.xml" />
+    <!-- Metadata -->
+    <meta name="author" content="Alex Vear" />
+    <meta name="description" content="###DESCRIPTION###" />
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="item content">
+<title>Ascribe vs EditorConfig</title>
+
+<p><a href="../">&lt;-- back</a></p>
+<h1 id="comparison-between-editorconfig-and-ascribe">Comparison between EditorConfig and Ascribe</h1>
+<p>Both Ascribe and EditorConfig have clear advantages and disadvantages. I have created this page to provide an overview and basic comparison between the two tools, to enable you to make an informed decision about which one to use.</p>
+<h2 id="a-quick-overview-of-the-two-tools">A quick overview of the two tools</h2>
+<h3 id="editorconfig"><a href="https://editorconfig.org/">EditorConfig</a></h3>
+<p>EditorConfig is a standard which defines a file (<code>.editorconfig</code>), and a format for that file. The standard also defines several options which that file can contain, each of these options can change the behaviour of the developer's editor when editing specific files.</p>
+<p>In order for the behaviour of an editor to be altered, an extension needs to be installed to that specific editor (some editors support the EditorConfig standard out-of-the-box).</p>
+<p>The EditorConfig project develops multiple parsers for their custom file format, written in a range of languages; intended to be used within the editor extensions they create.</p>
+<p>EditorConfig does not depend on any version control tools.</p>
+<h3 id="ascribe"><a href="../">Ascribe</a></h3>
+<p>The Ascribe standard reuses the <code>.gitattributes</code> file commonly found in many projects. It defines how to use specific attributes in the <code>.gitattributes</code> to alter the behaviour of editors.</p>
+<p>Ascribe makes use of the existing attributes commonly used by Git (e.g. <code>text</code>, <code>eol</code>, <code>binary</code>, etc.), and adds some editor specific ones on top. These attributes are used by Ascribe extensions which can be installed to the editor.</p>
+<p>Since Ascribe uses the <code>.gitattributes</code> file, and reuses some of the existing attributes, many of the most important options are enforced at the VCS level by Git. This reduces problems for developers who don't use a supported editor.</p>
+<p>Ascribe depends on the <a href="https://git-scm.com/">Git version control system</a>.</p>
+<h2 id="head-to-head-comparison">Head to head comparison</h2>
+<h3 id="editorconfig-1">EditorConfig</h3>
+<p><u>Benefits</u></p>
+<ul>
+<li>Well supported, many extensions exist and it is very popular.</li>
+<li><code>.editorconfig</code> files are easier to understand than <code>.gitattributes</code> files.</li>
+</ul>
+<p><u>Problems</u></p>
+<ul>
+<li>File encoding rules don't actually work when used with Git (Git will still store and checkout the file in UTF-8 unless you use the <code>.gitattributes</code> file).</li>
+<li>Some implementations suffer from security issues caused by allowing arbitrary code execution (e.g. issues <a href="https://github.com/sgur/vim-editorconfig/issues/31">#31</a> &amp; <a href="https://github.com/sgur/vim-editorconfig/issues/33">#33</a> in an <a href="https://github.com/sgur/vim-editorconfig/">unofficial Vim extension</a>).</li>
+</ul>
+<h3 id="ascribe-1">Ascribe</h3>
+<p><u>Benefits</u></p>
+<ul>
+<li>Ascribe extensions are significantly simpler and easier to write than EditorConfig extensions.</li>
+<li>File encoding rules partially work (there are issues with old Git versions and alternative Git implementations).</li>
+<li>Some options are enforced at the VCS level.</li>
+<li>Keeps all information on project files in a centralised location, many other tools use the <code>.gitattributes</code> file to get information (for example <a href="https://github.com/">GitHub</a>'s file type detection can be overridden using the <a href="https://github.com/github/linguist#using-gitattributes"><code>linguist-language</code> attribute</a>), this makes <code>.gitattributes</code> parsers much more useful than their <code>.editorconfig</code> counterparts.</li>
+</ul>
+<p><u>Problems</u></p>
+<ul>
+<li>The <code>.gitattributes</code> file format is difficult to understand.</li>
+<li>Not many editor extensions available at the moment.</li>
+<li>Depends on Git.</li>
+</ul>
+      </div>
+
+      <nav class="item sidebar">
+
+        <h1><a href="/">Alex Vear</a></h1>
+
+        <div id="linkbar">
+          <ul>
+            <li><a href="/docs"><i class="fa fa-book"></i>Docs</a></li>
+            <li><a href="/posts"><i class="fa fa-pencil"></i>Posts</a></li>
+            <li><a href="/notes"><i class="fa fa-sticky-note"></i>Notes</a></li>
+            <li><a href="/projects"><i class="fa fa-code"></i>Projects</a></li>
+            <li><a href="https://github.com/axvr"><i class="fa fa-github"></i>GitHub</a></li>
+          </ul>
+        </div>
+
+        <div id="side-content">
+          <br>
+
+          <h2>Projects</h2>
+
+          <ul style="list-style: none; padding-left: 0px; margin: 0px;">
+
+            <li style="margin: 10px 0px;"><a href="/projects/ascribe"><b>Ascribe</b></a>
+              An alternative to EditorConfig.</li>
+
+            <li style="margin: 10px 0px;"><a href="https://github.com/axvr/photon.vim"><b>Photon.vim</b></a>
+              A minimal and elegant dark colour scheme for Vim.</li>
+
+            <li style="margin: 10px 0px;"><a href="https://github.com/axvr/txtdb"><b>txtdb</b></a>
+              A transparent RDBMS and DB engine to help teach about databases.</li>
+
+          </ul>
+
+          <br>
+        </div>
+
+        <div id="licence">
+          <p>All content on this site is licenced under the
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+          licence. The source code for the site is under the
+          <a href="https://github.com/axvr/axvr.github.io/blob/master/LICENCE">ISC</a>
+          licence.</p>
+        </div>
+
+      </nav>
+
+    </div>
+
+  </body>
+</html>
