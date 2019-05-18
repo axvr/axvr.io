@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Alex Vear | Using .gitattributes</title>
+    <title>Alex Vear | Using .gitattributes files</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -24,11 +24,16 @@
     <div class="container">
 
       <div class="item content">
-<title>Using .gitattributes</title>
+<title>Using .gitattributes files</title>
 
 <p><a href="../">&lt;-- back</a></p>
 <h1 id="using-gitattributes-files">Using <code>.gitattributes</code> files</h1>
 <p><em>WIP</em></p>
+<!-- TODO: explain explicit set/unset, unspecified, explicit set to value, etc. -->
+
+<!-- TODO: to learn about the available options please read the specification,
+it however it recommended that you read this page first. -->
+
 <h2 id="example">Example</h2>
 <p>This is the <code>.gitattributes</code> file for the Ascribe Vim extension.</p>
 <pre><code>*        text=auto final-newline eol=lf
@@ -46,6 +51,11 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 </code></pre>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><a href="https://www.git-scm.com/docs/gitattributes"><code>gitattributes(5)</code></a></li>
+<li><a href="https://www.git-scm.com/docs/git-check-attr"><code>git-check-attr(1)</code></a> - The official <code>.gitattributes</code> parser.</li>
+</ul>
       </div>
 
       <nav class="item sidebar">
