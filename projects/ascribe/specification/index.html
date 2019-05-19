@@ -28,6 +28,7 @@
 
 <p><a href="../">&lt;-- back</a></p>
 <h1 id="ascribe-specification">Ascribe specification</h1>
+<p><strong>Version</strong>: <code>v1.0</code><br> <strong>Last modified</strong>: <code>2019-05-19</code></p>
 <p>This is the Ascribe specification. If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href="../usage">using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. &quot;explicitly set/unset&quot;.</p>
 <p>Most of the time if a specific option is &quot;unspecified&quot;, Ascribe should use the default settings of the editor or tool, i.e. do nothing. Any exceptions to this are mentioned below.</p>
 <p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option. The value has to match this (<a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04">POSIX extended</a>) regular expression: <code>/[a-zA-Z0-9_.-]+/</code>.</p>
@@ -70,12 +71,7 @@
 <p>If explicitly set, this option will automatically trim trailing whitespace. Typically this would occur just before saving the file.</p>
 <h2 id="final-newline"><code>final-newline</code></h2>
 <p><strong>Type</strong>: boolean.</p>
-<p>The <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206">POSIX specification</a> defines a line as:</p>
-<blockquote>
-<p>A sequence of zero or more non-<code>&lt;newline&gt;</code> characters plus a terminating <code>&lt;newline&gt;</code> character.</p>
-</blockquote>
-<p>This includes the last line of the file.</p>
-<p>Many tools in the Unix world expect this final newline character to be there, otherwise they will consider the file corrupted or at the very least, truncated.</p>
+<p>The <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206">POSIX specification</a> states that a line should always end with a newline character, including the last line of the file. Many tools in the Unix world expect this final newline character to be there, otherwise they may consider the file to be corrupted or at the very least, truncated.</p>
 <p>By explicitly setting this option, an Ascribe tool will automatically insert the final newline character if it is missing.</p>
 <p>This option is not enforced by Git, however running <code>git diff --check</code> will inform you if it is missing.</p>
 <h2 id="line-length"><code>line-length</code></h2>
@@ -87,8 +83,8 @@
 <h2 id="working-tree-encoding"><code>working-tree-encoding</code></h2>
 <p><strong>Type</strong>: string.</p>
 <p>Whenever a file is checked into Git, it will be stored using the UTF-8 file encoding. When files are checked out of Git, they will also be encoded in UTF-8 (regardless of the encoding the file was originally using). The <code>working-tree-encoding</code> option allows you to override the encoding used when checking out the file.</p>
-<p>This option is enforced by Git, however there are some limitations. According to the <a href="https://www.git-scm.com/docs/gitattributes"><code>gitattributes(5)</code></a> manual page, there can be pretty major consequential issues when using Git clients which don't support the <code>working-tree-encoding</code> option, and it can slow down common Git operations (e.g. <code>checkout</code>).</p>
-<p>Because of these issues, this option hasn't yet been implemented in the &quot;official&quot; Ascribe extensions. If you must use it, please read the entirety of the appropriate section of the <code>gitattributes(5)</code> manual page, do it manually and inform all contributors.</p>
+<p>This option is enforced by Git, however there are some limitations. According to the <a href="https://www.git-scm.com/docs/gitattributes"><code>gitattributes(5)</code></a> manual page, there can be pretty major issues when using Git clients which don't support the <code>working-tree-encoding</code> option.</p>
+<p>Because of these issues, this option hasn't yet been implemented in the &quot;official&quot; Ascribe extensions. If you must use it, please read the entirety of the appropriate section of the <code>gitattributes(5)</code> manual page, do it manually and inform all contributors about potential issues.</p>
       </div>
 
       <nav class="item sidebar">
