@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Alex Vear | Projects</title>
+    <title>Alex Vear | Dell XPS 13 (9370)</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
@@ -23,31 +23,35 @@
     <div class="container">
 
       <div class="item content">
-<title>Projects</title>
+<title>Dell XPS 13 (9370)</title>
 
-<h1 id="projects-and-contributions">Projects and contributions</h1>
-<p>This is a list of my featured projects, you can find the full list on the <a href="timeline">project timeline</a>. Most tend to be software projects, however a few are hardware focused.</p>
-<h2 id="current-projects">Current projects</h2>
-<ul>
-<li><a href="ascribe">Ascribe</a> - An alternative to EditorConfig.</li>
-<li><a href="https://github.com/axvr/photon.vim">Photon</a> - An elegant, dark colour scheme with minimal syntax highlighting.</li>
-<li><a href="https://github.com/axvr/org.vim">Org.vim</a> - An Org-mode plugin for Vim providing only the absolute necessities.</li>
-<li><a href="https://github.com/axvr/txtdb">txtdb</a> - An experimental RDBMS and DB engine using CSV files to store tables.</li>
-</ul>
-<h2 id="completed-projects">Completed projects</h2>
-<ul>
-<li><a href="teg">Thermoelectric generator</a> - An attempt to create a cheap thermoelectric generator capable of charging a mobile phone.</li>
-</ul>
-<h2 id="future-projects">Future projects</h2>
-<ul>
-<li><a href="gait">Gait</a> - An experimental and intelligent UI framework project.</li>
-<li><a href="envy">Envy</a> - An efficient, reliable, and simple dektop stack for Unix-like OSs.</li>
-<li><a href="8-bit-hbc">8-bit homebrew computer</a> - Designing and building a simple 8-bit computer from scratch.</li>
-</ul>
-<h2 id="contribute-to">Contribute to</h2>
-<ul>
-<li><a href="https://github.com/OmniSharp/omnisharp-vim">OmniSharp-Vim</a> - I wrote the automatic installer for both MS Windows and Unix-like OSs. I occasionally fix bugs, add features and help resolve issues.</li>
-</ul>
+<p><a href="..">&lt;-- back</a></p>
+<h1 id="dell-xps-13-9370">Dell XPS 13 (9370)</h1>
+<p>For more info, visit the <a href="https://wiki.archlinux.org/index.php/Dell_XPS_13_(9370)">Arch wiki</a>.</p>
+<h2 id="enter-the-boot-menu">Enter the boot menu</h2>
+<p>To enter the boot menu, repeatedly press the <code>&lt;F10&gt;</code> key, while the machine is booting up.</p>
+<h2 id="modify-uefi-settings">Modify UEFI settings</h2>
+<p>To modify the UEFI settings of the system, repeatedly press the <code>&lt;F2&gt;</code> key while the machine is booting up.</p>
+<h3 id="disable-secure-boot">Disable &quot;secure boot&quot;</h3>
+<p>Open the UEFI settings, and disable &quot;Secure Boot&quot;, otherwise Linux will fail to boot.</p>
+<h3 id="disable-adaptive-brightness">Disable &quot;adaptive brightness&quot;</h3>
+<p>&quot;Adaptive brightness&quot; is possibly the stupidest feature ever added to a laptop, it makes it look like the screen is broken, and it always reacts far too late anyway.</p>
+<p>To disable it, open the UEFI settings, and disable the option labeled: &quot;Content Adaptive Brightness Control&quot;.</p>
+<p>You can check if it is disabled, by visiting <a href="https://tylerwatt12.com/dc/">this page</a>.</p>
+<h3 id="boot-from-usb-device">Boot from USB device</h3>
+<p>To boot from a USB device attached via the USB-C to USB-A adapter included in the box, you'll need to enable Thunderbolt boot, in the UEFI settings.</p>
+<h3 id="detect-the-nvme-ssd">Detect the NVME SSD</h3>
+<p>Change the SATA Mode from the default &quot;RAID&quot; to &quot;AHCI&quot;. This will allow Linux to detect the NVME SSD.</p>
+<h2 id="disable-power-saving-for-the-wireless-driver">Disable power saving for the wireless driver</h2>
+<h3 id="check-if-power-saving-is-enabled">Check if power saving is enabled</h3>
+<p>Open a terminal, and run <code>iwconfig</code>, locate your network card, and look for the &quot;Power Management&quot; propery, if it is followed by a <code>1</code>, then power management is enabled.</p>
+<h3 id="disable-power-saving-permanently">Disable power saving permanently</h3>
+<p>Run this command.</p>
+<pre><code>sudo crontab -e
+</code></pre>
+<p>Then place this in the newly opened file, then save and exit (make sure to replace <code>&lt;device-id&gt;</code> with the id of your network card).</p>
+<pre><code>*/1 * * * * /sbin/iwconfig &lt;device-id&gt; power off
+</code></pre>
       </div>
 
       <nav class="item sidebar">

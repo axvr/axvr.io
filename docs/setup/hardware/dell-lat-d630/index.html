@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Alex Vear | Projects</title>
+    <title>Alex Vear | Dell Latitude D630</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
@@ -23,31 +23,41 @@
     <div class="container">
 
       <div class="item content">
-<title>Projects</title>
+<title>Dell Latitude D630</title>
 
-<h1 id="projects-and-contributions">Projects and contributions</h1>
-<p>This is a list of my featured projects, you can find the full list on the <a href="timeline">project timeline</a>. Most tend to be software projects, however a few are hardware focused.</p>
-<h2 id="current-projects">Current projects</h2>
+<p><a href="..">&lt;-- back</a></p>
+<h1 id="dell-latitude-d630">Dell Latitude D630</h1>
+<p>Set up wireless drivers on Linux for the Dell Latitude D630.</p>
+<h2 id="install-the-broadcom-b43-and-b43-legacy-wireless-drivers">Install the Broadcom b43 and b43-legacy wireless drivers</h2>
+<p>More information can be found at these links:</p>
 <ul>
-<li><a href="ascribe">Ascribe</a> - An alternative to EditorConfig.</li>
-<li><a href="https://github.com/axvr/photon.vim">Photon</a> - An elegant, dark colour scheme with minimal syntax highlighting.</li>
-<li><a href="https://github.com/axvr/org.vim">Org.vim</a> - An Org-mode plugin for Vim providing only the absolute necessities.</li>
-<li><a href="https://github.com/axvr/txtdb">txtdb</a> - An experimental RDBMS and DB engine using CSV files to store tables.</li>
+<li><a href="https://wireless.wiki.kernel.org/en/users/drivers/b43">Kernel.org wiki</a></li>
+<li><a href="http://linuxwireless.sipsolutions.net/en/users/Drivers/b43/">Broadcom b43 driver install instructions</a></li>
+<li><a href="https://ashhar24.wordpress.com/2012/06/15/setting-up-wireless-driver-fedora/">Fedora wireless drivers</a></li>
 </ul>
-<h2 id="completed-projects">Completed projects</h2>
-<ul>
-<li><a href="teg">Thermoelectric generator</a> - An attempt to create a cheap thermoelectric generator capable of charging a mobile phone.</li>
-</ul>
-<h2 id="future-projects">Future projects</h2>
-<ul>
-<li><a href="gait">Gait</a> - An experimental and intelligent UI framework project.</li>
-<li><a href="envy">Envy</a> - An efficient, reliable, and simple dektop stack for Unix-like OSs.</li>
-<li><a href="8-bit-hbc">8-bit homebrew computer</a> - Designing and building a simple 8-bit computer from scratch.</li>
-</ul>
-<h2 id="contribute-to">Contribute to</h2>
-<ul>
-<li><a href="https://github.com/OmniSharp/omnisharp-vim">OmniSharp-Vim</a> - I wrote the automatic installer for both MS Windows and Unix-like OSs. I occasionally fix bugs, add features and help resolve issues.</li>
-</ul>
+<p>This process requires a C compiler, a libc, Wget (or Curl), make and optionally GnuPG.</p>
+<h3 id="install-b43-fwcutter">Install b43-fwcutter</h3>
+<pre><code>wget http://bues.ch/b43/fwcutter/b43-fwcutter-018.tar.bz2 http://bues.ch/b43/fwcutter/b43-fwcutter-018.tar.bz2.asc
+
+# Optionally you can verify the source hasn&#39;t been tampered with.
+#
+# GPG Key
+# Key ID = 4203454C
+# Key fingerprint = 757F AB7C ED18 14AE 15B4  836E 5FB0 2747 4203 454C
+gpg --verify b43-fwcutter-018.tar.bz2.asc
+
+tar xjf b43-fwcutter-018.tar.bz2
+cd b43-fwcutter-018
+make
+sudo make install
+cd ../
+</code></pre>
+<h3 id="install-the-driver">Install the driver</h3>
+<pre><code>export FIRMWARE_INSTALL_DIR=&quot;/lib/firmware&quot;
+wget http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
+tar xjf broadcom-wl-5.100.138.tar.bz2
+sudo b43-fwcutter -w &quot;$FIRMWARE_INSTALL_DIR&quot; broadcom-wl-5.100.138/linux/wl_apsta.o
+</code></pre>
       </div>
 
       <nav class="item sidebar">
