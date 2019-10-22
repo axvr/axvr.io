@@ -30,7 +30,7 @@
 <p><strong>Version</strong>: <code>v1.0</code><br> <strong>Last modified</strong>: <code>2019-05-19</code></p>
 <p>This is the Ascribe specification. If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href="../usage">using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. &quot;explicitly set/unset&quot;.</p>
 <p>Most of the time if a specific option is &quot;unspecified&quot;, Ascribe should use the default settings of the editor or tool, i.e. do nothing. Any exceptions to this are mentioned below.</p>
-<p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option. The value has to match this (<a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04">POSIX extended</a>) regular expression: <code>/[a-zA-Z0-9_.-]+/</code>.</p>
+<p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option. The value has to match this (<a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04">POSIX extended</a>) regular expression: <code>/[a-zA-Z0-9_.-]*/</code>.</p>
 <ul>
 <li><a href="#expand-tab"><code>expand-tab</code></a></li>
 <li><a href="#tab-stop"><code>tab-stop</code></a></li>
@@ -53,8 +53,7 @@
 <p>Controls whether presses of the tab key will be expanded into spaces. The number of spaces a tab is expanded to is controlled by <a href="#tab-stop"><code>tab-stop</code></a>.</p>
 <h2 id="tab-stop"><code>tab-stop</code></h2>
 <p><strong>Type</strong>: integer.</p>
-<p>How many spaces represent a tab. When <a href="#expand-tab"><code>expand-tab</code></a> is explicitly &quot;unset&quot;, this option will default to <code>8</code>, however you can override this.</p>
-<p>The most common values for this attribute are: <code>2</code>, <code>4</code> and <code>8</code>.</p>
+<p>The number of spaces which represent a tab character. The most common values for this attribute are: <code>2</code>, <code>4</code> and <code>8</code>.</p>
 <h2 id="eol"><code>eol</code></h2>
 <p><strong>Type</strong>: string.</p>
 <p>Sets the character(s) used at the end of a line.</p>
@@ -111,10 +110,10 @@
               An alternative to EditorConfig.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/photon.vim"><b>Photon.vim</b></a>
-              A minimal and elegant dark colour scheme for Vim.</li>
+              An elegant dark Vim colour scheme using very few colours.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/org.vim"><b>Org.vim</b></a>
-               A minimal Org-mode plugin for Vim providing only the necessities.</li>
+              Org mode and Outline mode syntax and folding definitions for Vim.</li>
 
           </ul>
 

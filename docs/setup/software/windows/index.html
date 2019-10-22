@@ -25,9 +25,10 @@
       <div class="item content">
 <title>Microsoft Windows</title>
 
-<p><a href="..">&lt;-- back</a></p>
+<p><a href="../../">&lt;-- back</a></p>
 <h1 id="microsoft-windows">Microsoft Windows</h1>
 <p>This is how I set up my machines running <a href="https://www.microsoft.com/en-gb/windows/">Microsoft Windows</a>.</p>
+<p>Windows 10 ISOs can be downloaded from <a href="https://www.microsoft.com/en-us/software-download/windows10ISO">here</a>.</p>
 <h2 id="updates">Updates</h2>
 <p>Make sure everything is up-to-date.</p>
 <ol>
@@ -44,24 +45,94 @@
 <li>The &quot;Start menu&quot;.</li>
 </ol>
 <p>Some ASUS motherboards inject software into your Windows installation, but it can be turned off in the BIOS settings, however you will also have to do an entire file system search for any mention of ASUS and delete all results.</p>
+<h2 id="remove-built-in-applications">Remove built-in applications</h2>
+<p>For some reason Microsoft like to pack Windows full of applications you will likely never use or want to use. Almost all of these can be <em>safely</em> removed from PowerShell.</p>
+<h3 id="list-installed-applicaitons">List installed applicaitons</h3>
+<pre><code>GetAppxPackage
+</code></pre>
+<h3 id="remove-specific-apps">Remove specific apps</h3>
+<p>For each app insert the app ID into this command:</p>
+<pre><code>GetAppxPackage *id* | Remove-AppxPackage
+</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Applications</th>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3D Builder</td>
+<td><code>3dbuilder</code></td>
+</tr>
+<tr class="even">
+<td>Get Office</td>
+<td><code>officehub</code></td>
+</tr>
+<tr class="odd">
+<td>Get Skype</td>
+<td><code>skypeapp</code></td>
+</tr>
+<tr class="even">
+<td>Get Started</td>
+<td><code>getstarted</code></td>
+</tr>
+<tr class="odd">
+<td>Maps</td>
+<td><code>maps</code></td>
+</tr>
+<tr class="even">
+<td>Messaging</td>
+<td><code>messaging</code></td>
+</tr>
+<tr class="odd">
+<td>Money, News, Sports, Weather</td>
+<td><code>bing</code></td>
+</tr>
+<tr class="even">
+<td>OneNote</td>
+<td><code>onenote</code></td>
+</tr>
+<tr class="odd">
+<td>People</td>
+<td><code>people</code></td>
+</tr>
+<tr class="even">
+<td>Phone, Phone Companion</td>
+<td><code>phone</code></td>
+</tr>
+<tr class="odd">
+<td>Solitaire</td>
+<td><code>solitaire</code></td>
+</tr>
+<tr class="even">
+<td>Sway</td>
+<td><code>sway</code></td>
+</tr>
+<tr class="odd">
+<td>Xbox</td>
+<td><code>xbox</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="install-the-applications">Install the applications</h2>
 <p>Install each of the following applications.</p>
 <ul>
 <li><a href="https://mozilla.org/firefox/">Mozilla Firefox</a></li>
-<li><a href="https://chrome.google.com/">Google Chrome</a></li>
 <li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://dotnet.microsoft.com/download/dotnet-core">.NET Core</a></li>
 <li><a href="https://nodejs.org/">Node.js</a></li>
 <li><a href="https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-nuget-cli">NuGet CLI</a></li>
-<li><a href="https://www.getpostman.com/">Postman</a></li>
 <li><a href="https://ngrok.com/">Ngrok</a></li>
 <li><a href="https://visualstudio.microsoft.com/">Visual Studio</a></li>
 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
 <li><a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio</a></li>
 <li><a href="https://azure.microsoft.com/en-us/features/storage-explorer/">Microsoft Azure Storage Explorer</a></li>
-<li>Windows Terminal (not yet available)</li>
+<li><a href="https://github.com/microsoft/terminal">Windows Terminal</a> (install from the <a href="https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701">Windows Store</a>)</li>
 </ul>
 <p>Aim to install user-level applications in this directory to help keep the system clean:</p>
-<pre><code>C:\Users\&lt;username&gt;\AppData\Local\Programs
+<pre><code>C:\Users\%username%\AppData\Local\Programs
 </code></pre>
 <h2 id="cygwin">Cygwin</h2>
 <p>Download and install Cygwin from the <a href="https://cygwin.com/">official website</a>.</p>
@@ -103,6 +174,8 @@ git submodule init &amp;&amp; git submodule update
 rm ~/.{profile,bashrc}
 stow -t ~ bin git shell tmux vim
 </code></pre>
+<h3 id="fixing-issues-in-wsl">Fixing issues in WSL</h3>
+<p>Sometimes I may accidentally make a change to my Bash config which breaks WSL. To perform repairs, open <em>Command Prompt</em> and enter <code>bash.exe -c sh</code>.</p>
 <h2 id="useful-to-know">Useful to know</h2>
 <h3 id="modify-environment-variables"><u>Modify environment variables</u></h3>
 <p>To modify environment variables for a windows machine, you will first have to press <code>WIN-r</code> and run the following in the displayed prompt.</p>
@@ -137,10 +210,10 @@ stow -t ~ bin git shell tmux vim
               An alternative to EditorConfig.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/photon.vim"><b>Photon.vim</b></a>
-              A minimal and elegant dark colour scheme for Vim.</li>
+              An elegant dark Vim colour scheme using very few colours.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/org.vim"><b>Org.vim</b></a>
-               A minimal Org-mode plugin for Vim providing only the necessities.</li>
+              Org mode and Outline mode syntax and folding definitions for Vim.</li>
 
           </ul>
 

@@ -25,9 +25,9 @@
       <div class="item content">
 <title>Dell Latitude D630</title>
 
-<p><a href="..">&lt;-- back</a></p>
+<p><a href="../..">&lt;-- back</a></p>
 <h1 id="dell-latitude-d630">Dell Latitude D630</h1>
-<p>Set up wireless drivers on Linux for the Dell Latitude D630.</p>
+<p>Set up wireless drivers for Linux on the Dell Latitude D630.</p>
 <h2 id="install-the-broadcom-b43-and-b43-legacy-wireless-drivers">Install the Broadcom b43 and b43-legacy wireless drivers</h2>
 <p>More information can be found at these links:</p>
 <ul>
@@ -52,12 +52,21 @@ make
 sudo make install
 cd ../
 </code></pre>
+<p>If the above site hosting b43-fwcutter were to ever go offline, b43-fwcutter and the PGP signature can be downloaded from here:</p>
+<ul>
+<li><a href="assets/b43-fwcutter-018.tar.bz2"><code>b43-fwcutter-018.tar.bz2</code></a></li>
+<li><a href="assets/b43-fwcutter-018.tar.bz2.asc"><code>b43-fwcutter-018.tar.bz2.asc</code></a></li>
+</ul>
 <h3 id="install-the-driver">Install the driver</h3>
 <pre><code>export FIRMWARE_INSTALL_DIR=&quot;/lib/firmware&quot;
 wget http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
 tar xjf broadcom-wl-5.100.138.tar.bz2
 sudo b43-fwcutter -w &quot;$FIRMWARE_INSTALL_DIR&quot; broadcom-wl-5.100.138/linux/wl_apsta.o
 </code></pre>
+<p>If the above site hosting the driver download were to ever go offline, the broadcom-wl driver can be downloaded from here:</p>
+<ul>
+<li><a href="assets/broadcom-wl-5.100.138.tar.bz2"><code>broadcom-wl-5.100.138.tar.bz2</code></a></li>
+</ul>
       </div>
 
       <nav class="item sidebar">
@@ -85,10 +94,10 @@ sudo b43-fwcutter -w &quot;$FIRMWARE_INSTALL_DIR&quot; broadcom-wl-5.100.138/lin
               An alternative to EditorConfig.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/photon.vim"><b>Photon.vim</b></a>
-              A minimal and elegant dark colour scheme for Vim.</li>
+              An elegant dark Vim colour scheme using very few colours.</li>
 
             <li style="margin: 10px 0px;"><a href="https://github.com/axvr/org.vim"><b>Org.vim</b></a>
-               A minimal Org-mode plugin for Vim providing only the necessities.</li>
+              Org mode and Outline mode syntax and folding definitions for Vim.</li>
 
           </ul>
 
