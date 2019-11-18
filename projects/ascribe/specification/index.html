@@ -2,17 +2,20 @@
 
 <html>
   <head>
-    <title>Alex Vear | Ascribe specification</title>
+    <title>Ascribe specification — Alex Vear</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/lato.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/libre-franklin.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/inconsolata.css" />
+
     <!-- RSS Feeds -->
     <!-- <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/posts/feed.xml" /> -->
+
     <!-- Metadata -->
     <meta name="author" content="Alex Vear" />
     <!-- <meta name="description" content="###DESCRIPTION###" /> -->
@@ -28,8 +31,8 @@
 <p><a href="../">&lt;-- back</a></p>
 <h1 id="ascribe-specification">Ascribe specification</h1>
 <p><strong>Version</strong>: <code>v1.0</code><br> <strong>Last modified</strong>: <code>2019-05-19</code></p>
-<p>This is the Ascribe specification. If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href="../usage">using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. &quot;explicitly set/unset&quot;.</p>
-<p>Most of the time if a specific option is &quot;unspecified&quot;, Ascribe should use the default settings of the editor or tool, i.e. do nothing. Any exceptions to this are mentioned below.</p>
+<p>This is the Ascribe specification. If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href="../usage">using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. "explicitly set/unset".</p>
+<p>Most of the time if a specific option is "unspecified", Ascribe should use the default settings of the editor or tool, i.e. do nothing. Any exceptions to this are mentioned below.</p>
 <p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option. The value has to match this (<a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04">POSIX extended</a>) regular expression: <code>/[a-zA-Z0-9_.-]*/</code>.</p>
 <ul>
 <li><a href="#expand-tab"><code>expand-tab</code></a></li>
@@ -82,7 +85,7 @@
 <p><strong>Type</strong>: string.</p>
 <p>Whenever a file is checked into Git, it will be stored using the UTF-8 file encoding. When files are checked out of Git, they will also be encoded in UTF-8 (regardless of the encoding the file was originally using). The <code>working-tree-encoding</code> option allows you to override the encoding used when checking out the file.</p>
 <p>This option is enforced by Git, however there are some limitations. According to the <a href="https://www.git-scm.com/docs/gitattributes"><code>gitattributes(5)</code></a> manual page, there can be pretty major issues when using Git clients which don't support the <code>working-tree-encoding</code> option.</p>
-<p>Because of these issues, this option hasn't yet been implemented in the &quot;official&quot; Ascribe extensions. If you must use it, please read the entirety of the appropriate section of the <code>gitattributes(5)</code> manual page, do it manually and inform all contributors about potential issues.</p>
+<p>Because of these issues, this option hasn't yet been implemented in the "official" Ascribe extensions. If you must use it, please read the entirety of the appropriate section of the <code>gitattributes(5)</code> manual page, do it manually and inform all contributors about potential issues.</p>
       </div>
 
       <nav class="item sidebar">
@@ -91,8 +94,7 @@
 
         <div id="linkbar">
           <ul>
-            <li><a href="/docs" title="In-depth documents"><i class="fa fa-book"></i>Docs</a></li>
-            <li><a href="/posts" title="Opinion & update articles"><i class="fa fa-pencil"></i>Posts</a></li>
+            <li><a href="/posts" title="Essays"><i class="fa fa-pencil"></i>Essays</a></li>
             <li><a href="/notes" title="Quick thoughts & notes"><i class="fa fa-sticky-note"></i>Notes</a></li>
             <li><a href="/projects" title="Projects & contributions"><i class="fa fa-code"></i>Projects</a></li>
             <li><a href="https://github.com/axvr" title="GitHub (axvr)"><i class="fa fa-github"></i>GitHub</a></li>
