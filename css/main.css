@@ -1,3 +1,5 @@
+/* Public domain.  No rights reserved. */
+
 .container {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
@@ -16,6 +18,10 @@
 	margin: 0px;
 }
 #linkbar ul li i { padding-right: 4px; }
+
+.side-content {
+	padding-top: 20px;
+}
 
 body {
 	font-family: 'Libre Franklin', sans-serif;
@@ -36,9 +42,10 @@ h3, h4, h5, h6 {
 	font-family: 'Lato', sans-serif;
 	font-weight: normal;
 }
-h1 { font-size: 22px; }
-h2 { font-size: 20px; }
-h3 { font-size: 18px; }
+h1 { font-size: 24px; }
+h2 { font-size: 22px; }
+h3 { font-size: 20px; }
+h4 { font-size: 18px; }
 
 a:link, a:visited { color: #2a5db0; }
 a:hover, a:focus { color: #8963A6; }
@@ -100,7 +107,7 @@ summary { cursor: pointer; }
 		padding-right: 7px;
 	}
 	#linkbar ul li i { display: none; }
-	#side-content, #licence {
+	.side-content {
 		visibility: hidden;
 		display: none;
 	}
